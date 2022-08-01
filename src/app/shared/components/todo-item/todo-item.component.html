@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-8 border-bottom">
+    <p [ngStyle]="{textDecoration: tarefa.situacao ? 'line-through' : 'none'}" >{{tarefa.atividade}}</p>
+  </div>
+  <div class="col-2 border-bottom">
+    <p [ngStyle]="{textDecoration: tarefa.situacao ? 'line-through' : 'none'}">{{tarefa.data}}</p>
+  </div>
+  <div class="col-2 border-bottom">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-danger" (click)="removerTodo()"><i class="bi bi-trash3-fill"></i> Excluir</button>
+      <button type="button" class="btn btn-success" (click)="setSituacao()" *ngIf="!tarefa.situacao"><i class="bi bi-check2-square"></i> Feito!</button>
+      <button type="button" class="btn btn-warning" (click)="setSituacao()" *ngIf="tarefa.situacao"><i class="bi bi-arrow-90deg-left"></i> Desfazer!</button>
+    </div>
+  </div>
+</div>

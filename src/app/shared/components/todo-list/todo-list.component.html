@@ -1,0 +1,35 @@
+<div class="container mt-4">
+<h1 class="text-center mb-3">Lista de tarefas</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input #todo type="text" class="form-control" id="floatingInput" placeholder="">
+        <label for="floatingInput">Ativade</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input #tododate type="date" class="form-control" id="floatingInput" placeholder="">
+        <label for="floatingInput">Data</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><button class="btn btn-success" (click)="criarTarefa(todo.value, tododate.value)">Criar
+        atividade</button></div>
+  </div>
+
+  <div class="row border-bottom mt-4">
+    <div class="col-8">
+      <p>Atividade</p>
+    </div>
+    <div class="col-2">
+      <p>Data</p>
+    </div>
+    <div class="col-2">
+      <p>Ação</p>
+    </div>
+  </div>
+  <app-todo-item *ngFor="let atividade of atividades" [tarefa]="atividade" (removeTodoItem)="removerTodo($event)"></app-todo-item>
+
+</div>
