@@ -15,6 +15,9 @@ export class TodoListComponent implements OnInit {
   constructor(public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('tarefas') !== null) {
+      this.atividades = JSON.parse(localStorage.getItem('tarefas')!);
+    }
   }
 
   criarTarefa(atividade: string, data?: string) {
@@ -25,6 +28,7 @@ export class TodoListComponent implements OnInit {
     }
     let tarefa = new Todo(this.atividades.length + 1, atividade, data!, false);
     this.atividades.push(tarefa);
+    localStorage.setItem('tarefas', JSON.stringify(this.atividades));
   }
 
   setComplete(index: number) {
